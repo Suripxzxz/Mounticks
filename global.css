@@ -1,0 +1,109 @@
+/* ==========================================
+   MOUNTICKS GLOBAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #eef2ec;
+}
+
+
+/* ==========================================
+   UKURAN SEMUA HALAMAN
+========================================== */
+
+.app,
+.login-page,
+.register-page,
+.tiket-page,
+.camping-page,
+.berita-page,
+.jadwal-page,
+.riwayat-page {
+
+    width: 600px !important;
+
+    max-width: 600px !important;
+
+    min-width: 600px !important;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    position: relative;
+
+    overflow-x: hidden;
+
+    background: #f8faf7;
+}
+
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media (min-width: 601px) {
+
+    body {
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+/* ==========================================
+   LAPTOP / TABLET
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        display: block;
+
+        overflow-x: hidden;
+
+    }
+
+
+    .app,
+    .login-page,
+    .register-page,
+    .tiket-page,
+    .camping-page,
+    .berita-page,
+    .jadwal-page,
+    .riwayat-page {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        min-height: 100vh;
+
+        margin: 0;
+
+    }
+
+}
