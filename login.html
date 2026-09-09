@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Mounticks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-card">
+            <div class="logo">🏔 <span>Mounticks</span></div>
+            <div class="login-title">
+                <span>WELCOME TO MOUNTICKS</span>
+                <h1>Login</h1>
+                <p>Masuk untuk melanjutkan perjalananmu.</p>
+            </div>
+
+            <div class="social-login">
+                <button type="button" class="social-button" onclick="loginGoogle()"><b>G</b> Lanjutkan dengan Google</button>
+                <button type="button" class="social-button" onclick="loginFacebook()"><b>f</b> Lanjutkan dengan Facebook</button>
+            </div>
+
+            <div class="divider"><span>atau masuk dengan gmail</span></div>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="nama@gmail.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="login-button">Masuk</button>
+                <p id="loginMessage" class="login-message"></p>
+            </form>
+
+            <p class="register-link">Belum punya akun? <a href="pages/register.html">Daftar sekarang</a></p>
+        </section>
+    </main>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Daftar - Mounticks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+
+    <link rel="stylesheet" href="register.css">
+
+</head>
+
+
+<body>
+
+    <div class="register-page">
+        <a href="login.html" class="back-button">← Kembali</a>
+        <div class="register-decoration decoration-one"></div>
+        <div class="register-decoration decoration-two"></div>
+
+
+        <main class="register-card">
+
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <span class="logo-icon">♧</span>
+
+                <span class="logo-text">
+                    MOUNTICKS
+                </span>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="register-title">
+
+                <span>Start Your Journey</span>
+
+                <h1>
+                    Buat Akun
+                </h1>
+
+                <p>
+                    Bergabung dan mulai perjalananmu
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="registerForm">
+
+
+                <!-- NAMA -->
+
+                <div class="input-group">
+
+                    <label for="name">
+                        Nama Lengkap
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Masukkan nama lengkap"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+    <label for="username">
+        Username
+    </label>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Masukkan username"
+        minlength="3"
+        maxlength="20"
+        required>
+
+</div>
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email"
+                        required>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Minimal 6 karakter"
+                            minlength="6"
+                            required>
+
+                        <button
+                            type="button"
+                            id="togglePassword">
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Konfirmasi Password
+                    </label>
+
+                    <div class="password-input">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Ulangi password"
+                            minlength="6"
+                            required>
+
+                        <button
+                            type="button"
+                            id="toggleConfirmPassword">
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AGREEMENT -->
+
+                <div class="agreement">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="agreement"
+                            required>
+
+                        <span>
+                            Saya setuju dengan syarat dan
+                            ketentuan Mounticks
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="register-button">
+
+                    Daftar
+
+                </button>
+
+
+                <!-- MESSAGE -->
+
+                <p
+                    id="registerMessage"
+                    class="register-message">
+                </p>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-link">
+
+                <span>
+                    Sudah punya akun?
+                </span>
+
+                <a href="login.html">
+                    Masuk sekarang
+                </a>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="register.js"></script>
+
+</body>
+
+</html>

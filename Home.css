@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* CONTAINER */
+
+.app {
+    width: 100%;
+    max-width: 720px;
+    min-height: 100vh;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.65),
+            rgba(255, 255, 255, 0.65)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* HEADER */
+
+.header {
+    height: 70px;
+    padding: 20px 45px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 27px;
+    color: #3b5d3b;
+    cursor: pointer;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 17px;
+    color: #3b5d3b;
+}
+
+.user-icon {
+    
+    font-size: 27px;
+}
+
+
+/* HERO */
+
+.hero {
+    height: 455px;
+
+    font-family: 'Belleza', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: center;
+
+    padding-top: 35px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    line-height: 1.6;
+    font-weight: 400;
+
+    color: #3b5d3b;
+
+    text-shadow:
+        2px 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero h1 span {
+    font-size: 60px;
+}
+
+
+/* GREEN CURVE */
+
+.green-curve {
+    position: absolute;
+
+    left: -5%;
+    right: -5%;
+    top: 480px;
+
+    height: 350px;
+
+    background: #3b5d3b;
+
+    border-radius: 150px 150px 0 0;
+    z-index: 1;
+}
+
+body {
+    font-family: 'Belleza', sans-serif;
+}
+
+/* MENU CARD */
+
+.menu-card {
+    position: relative;
+    z-index: 2;
+
+    min-height: 430px;
+
+    background: white;
+
+    border-radius: 150px 150px 0 0;
+
+    padding: 65px 40px 50px;
+
+    text-align: center;
+}
+
+.menu-card h2 {
+    font-size: 27px;
+    font-weight: 400;
+    color: #3b5d3b;
+
+    margin-bottom: 35px;
+}
+
+
+/* MENU */
+
+
+
+.menu-container {
+    max-width: 560px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px 40px;
+}
+
+.menu-item {
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: Georgia, serif;
+    font-size: 18px;
+
+    color: #3b5d3b;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+
+
+/* ICON */
+
+.menu-icon {
+    width: 92px;
+    height: 92px;
+
+    border-radius: 23px;
+
+    background: #3b5d3b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-size: 45px;
+
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 18px 25px;
+    }
+
+    .hero {
+        height: 410px;
+        padding-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h1 span {
+        font-size: 47px;
+    }
+
+    .green-curve {
+        top: 470px;
+    }
+
+    .menu-card {
+        border-radius: 100px 100px 0 0;
+        padding: 55px 20px;
+    }
+
+    .menu-card h2 {
+        font-size: 23px;
+    }
+
+    .menu-container {
+        gap: 25px 10px;
+    }
+
+    .menu-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 35px;
+        border-radius: 19px;
+    }
+
+    .menu-item {
+        font-size: 15px;
+    }
+}
+
+.menu-item {
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 18px;
+
+    color: #3b5d3b;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+}
+

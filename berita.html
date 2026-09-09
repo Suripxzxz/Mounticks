@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Berita Gunung - Mounticks</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="berita.css">
+
+    <link rel="stylesheet" href="berita.css">
+</head>
+
+
+<body>
+
+    <div class="page">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <a href="Home.html" class="back-btn">
+                ←
+            </a>
+
+            <h1>Berita Gunung</h1>
+
+            <div class="header-space"></div>
+
+        </header>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <span class="line"></span>
+
+            <h2>
+                Kondisi gunung<br>
+                <em>hari ini.</em>
+            </h2>
+
+            <p>
+                Informasi cuaca dan kondisi gunung
+                diperbarui secara otomatis.
+            </p>
+
+        </section>
+
+
+        <!-- UPDATE STATUS -->
+        <div class="update-box">
+
+            <span class="live-dot"></span>
+
+            <span>
+                Data cuaca real-time
+            </span>
+
+            <span id="updateTime">
+                Memuat...
+            </span>
+
+        </div>
+
+
+        <!-- MOUNTAIN LIST -->
+        <main class="mountain-list">
+
+
+            <!-- GUNUNG GEDE -->
+            <article class="mountain-card">
+
+                <div class="mountain-top">
+
+                    <div>
+
+                        <span class="mountain-label">
+                            GUNUNG
+                        </span>
+
+                        <h3>
+                            Gunung Gede
+                        </h3>
+
+                        <p class="location">
+                            📍 Jawa Barat
+                        </p>
+
+                    </div>
+
+                    <div class="mountain-icon">
+                        🏔
+                    </div>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            CUACA
+                        </span>
+
+                        <strong id="weather-gede">
+                            Memuat...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            SUHU
+                        </span>
+
+                        <strong id="temp-gede">
+                            --°C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            MEDAN
+                        </span>
+
+                        <strong>
+                            Berbatu
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GUNUNG PANGRANGO -->
+            <article class="mountain-card">
+
+                <div class="mountain-top">
+
+                    <div>
+
+                        <span class="mountain-label">
+                            GUNUNG
+                        </span>
+
+                        <h3>
+                            Gunung Pangrango
+                        </h3>
+
+                        <p class="location">
+                            📍 Jawa Barat
+                        </p>
+
+                    </div>
+
+                    <div class="mountain-icon">
+                        🏔
+                    </div>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            CUACA
+                        </span>
+
+                        <strong id="weather-pangrango">
+                            Memuat...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            SUHU
+                        </span>
+
+                        <strong id="temp-pangrango">
+                            --°C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            MEDAN
+                        </span>
+
+                        <strong>
+                            Hutan & berbatu
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GUNUNG PAPANDAYAN -->
+            <article class="mountain-card">
+
+                <div class="mountain-top">
+
+                    <div>
+
+                        <span class="mountain-label">
+                            GUNUNG
+                        </span>
+
+                        <h3>
+                            Gunung Papandayan
+                        </h3>
+
+                        <p class="location">
+                            📍 Jawa Barat
+                        </p>
+
+                    </div>
+
+                    <div class="mountain-icon">
+                        🏔
+                    </div>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            CUACA
+                        </span>
+
+                        <strong id="weather-papandayan">
+                            Memuat...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            SUHU
+                        </span>
+
+                        <strong id="temp-papandayan">
+                            --°C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            MEDAN
+                        </span>
+
+                        <strong>
+                            Vulkanik
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GUNUNG MERBABU -->
+            <article class="mountain-card">
+
+                <div class="mountain-top">
+
+                    <div>
+
+                        <span class="mountain-label">
+                            GUNUNG
+                        </span>
+
+                        <h3>
+                            Gunung Merbabu
+                        </h3>
+
+                        <p class="location">
+                            📍 Jawa Tengah
+                        </p>
+
+                    </div>
+
+                    <div class="mountain-icon">
+                        🏔
+                    </div>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            CUACA
+                        </span>
+
+                        <strong id="weather-merbabu">
+                            Memuat...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            SUHU
+                        </span>
+
+                        <strong id="temp-merbabu">
+                            --°C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            MEDAN
+                        </span>
+
+                        <strong>
+                            Savana
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- GUNUNG SEMERU -->
+            <article class="mountain-card">
+
+                <div class="mountain-top">
+
+                    <div>
+
+                        <span class="mountain-label">
+                            GUNUNG
+                        </span>
+
+                        <h3>
+                            Gunung Semeru
+                        </h3>
+
+                        <p class="location">
+                            📍 Jawa Timur
+                        </p>
+
+                    </div>
+
+                    <div class="mountain-icon">
+                        🏔
+                    </div>
+
+                </div>
+
+
+                <div class="weather-grid">
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            CUACA
+                        </span>
+
+                        <strong id="weather-semeru">
+                            Memuat...
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            SUHU
+                        </span>
+
+                        <strong id="temp-semeru">
+                            --°C
+                        </strong>
+
+                    </div>
+
+
+                    <div class="weather-item">
+
+                        <span class="weather-label">
+                            MEDAN
+                        </span>
+
+                        <strong>
+                            Pasir & berbatu
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </main>
+
+
+        <!-- INFO -->
+        <section class="info">
+
+            <div class="info-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h4>
+                    Perhatikan kondisi cuaca
+                </h4>
+
+                <p>
+                    Kondisi di gunung dapat berubah dengan cepat.
+                    Selalu periksa kembali sebelum melakukan pendakian.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        /*
+        ==========================================
+        DATA GUNUNG
+        ==========================================
+        Koordinat menggunakan lokasi gunung.
+        */
+
+        const mountains = {
+
+            gede: {
+                lat: -6.78,
+                lon: 106.98,
+                weather: "weather-gede",
+                temp: "temp-gede"
+            },
+
+            pangrango: {
+                lat: -6.77,
+                lon: 106.94,
+                weather: "weather-pangrango",
+                temp: "temp-pangrango"
+            },
+
+            papandayan: {
+                lat: -7.32,
+                lon: 107.73,
+                weather: "weather-papandayan",
+                temp: "temp-papandayan"
+            },
+
+            merbabu: {
+                lat: -7.45,
+                lon: 110.44,
+                weather: "weather-merbabu",
+                temp: "temp-merbabu"
+            },
+
+            semeru: {
+                lat: -8.11,
+                lon: 112.92,
+                weather: "weather-semeru",
+                temp: "temp-semeru"
+            }
+
+        };
+
+
+        /*
+        ==========================================
+        AMBIL CUACA
+        ==========================================
+        */
+
+        async function getWeather(mountain) {
+
+            const url =
+                `https://api.open-meteo.com/v1/forecast` +
+                `?latitude=${mountain.lat}` +
+                `&longitude=${mountain.lon}` +
+                `&current=temperature_2m,weather_code` +
+                `&temperature_unit=celsius` +
+                `&timezone=auto`;
+
+
+            try {
+
+                const response =
+                    await fetch(url);
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Gagal mengambil data"
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                const temperature =
+                    data.current.temperature_2m;
+
+
+                const weatherCode =
+                    data.current.weather_code;
+
+
+                document
+                    .getElementById(mountain.temp)
+                    .textContent =
+                    `${Math.round(temperature)}°C`;
+
+
+                document
+                    .getElementById(mountain.weather)
+                    .textContent =
+                    getWeatherText(weatherCode);
+
+
+            }
+
+            catch (error) {
+
+                document
+                    .getElementById(mountain.weather)
+                    .textContent =
+                    "Tidak tersedia";
+
+
+                document
+                    .getElementById(mountain.temp)
+                    .textContent =
+                    "--°C";
+
+                console.error(error);
+
+            }
+
+        }
+
+
+        /*
+        ==========================================
+        TERJEMAHKAN WEATHER CODE
+        ==========================================
+        */
+
+        function getWeatherText(code) {
+
+            if (code === 0) {
+                return "Cerah";
+            }
+
+            if (code === 1) {
+                return "Cerah berawan";
+            }
+
+            if (code === 2) {
+                return "Berawan";
+            }
+
+            if (code === 3) {
+                return "Mendung";
+            }
+
+            if (code >= 45 && code <= 48) {
+                return "Berkabut";
+            }
+
+            if (code >= 51 && code <= 57) {
+                return "Gerimis";
+            }
+
+            if (code >= 61 && code <= 67) {
+                return "Hujan";
+            }
+
+            if (code >= 71 && code <= 77) {
+                return "Salju";
+            }
+
+            if (code >= 80 && code <= 82) {
+                return "Hujan deras";
+            }
+
+            if (code >= 95 && code <= 99) {
+                return "Badai petir";
+            }
+
+            return "Tidak diketahui";
+
+        }
+
+
+        /*
+        ==========================================
+        JALANKAN SEMUA GUNUNG
+        ==========================================
+        */
+
+        Object.values(mountains)
+            .forEach(mountain => {
+
+                getWeather(mountain);
+
+            });
+
+
+        /*
+        ==========================================
+        WAKTU UPDATE
+        ==========================================
+        */
+
+        const now = new Date();
+
+
+        document
+            .getElementById("updateTime")
+            .textContent =
+            "Update " +
+            now.toLocaleTimeString(
+                "id-ID",
+                {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                }
+            );
+
+
+        /*
+        ==========================================
+        REFRESH OTOMATIS
+        ==========================================
+        */
+
+        setInterval(() => {
+
+            Object.values(mountains)
+                .forEach(mountain => {
+
+                    getWeather(mountain);
+
+                });
+
+
+            const update =
+                new Date();
+
+
+            document
+                .getElementById("updateTime")
+                .textContent =
+                "Update " +
+                update.toLocaleTimeString(
+                    "id-ID",
+                    {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    }
+                );
+
+        }, 15 * 60 * 1000);
+
+    </script>
+
+</body>
+
+</html>

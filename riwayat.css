@@ -1,0 +1,509 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    background: #e7ebe6;
+    font-family: "Montserrat", sans-serif;
+    color: #405444;
+}
+
+
+.page {
+    width: 100%;
+    max-width: 700px;
+    min-height: 100vh;
+    margin: auto;
+    padding-bottom: 50px;
+    background: #fafbf8;
+    box-shadow: 0 0 40px rgba(40, 63, 44, .1);
+}
+
+
+/* HEADER */
+
+.header {
+    height: 75px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: white;
+    border-bottom: 1px solid #e1e8df;
+}
+
+
+.header h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Belleza", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: #365b3c;
+}
+
+
+.back-btn {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #eef3ec;
+    color: #365b3c;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+
+.header-space {
+    width: 43px;
+}
+
+
+/* HERO */
+
+.hero {
+    padding: 38px 27px 27px;
+}
+
+
+.line {
+    display: block;
+    width: 35px;
+    height: 3px;
+    margin-bottom: 13px;
+    border-radius: 5px;
+    background: #7f9a83;
+}
+
+
+.hero h2 {
+    font-family: "Belleza", sans-serif;
+    font-size: 35px;
+    line-height: 1.05;
+    font-weight: 400;
+    color: #365b3c;
+}
+
+
+.hero h2 em {
+    font-style: italic;
+}
+
+
+.hero p {
+    margin-top: 11px;
+    max-width: 430px;
+    font-size: 10px;
+    line-height: 1.6;
+    color: #89938b;
+}
+
+
+/* LIST */
+
+.booking-list {
+    padding: 0 27px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+
+/* CARD */
+
+.booking-card {
+    padding: 19px;
+    background: white;
+    border: 1px solid #e1e8df;
+    border-radius: 21px;
+    box-shadow: 0 7px 20px rgba(45, 70, 49, .06);
+}
+
+
+.booking-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.status {
+    display: inline-block;
+    padding: 5px 8px;
+    border-radius: 8px;
+    background: #e6efe4;
+    color: #58705c;
+    font-size: 7px;
+    font-weight: 600;
+}
+
+
+.booking-card h3 {
+    margin-top: 8px;
+    font-family: "Belleza", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: #365b3c;
+}
+
+
+.booking-card-top p {
+    margin-top: 4px;
+    font-size: 8px;
+    color: #909a92;
+}
+
+
+.ticket-symbol {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #eef3ec;
+    font-size: 21px;
+}
+
+
+/* CODE */
+
+.code-box {
+    margin-top: 16px;
+    padding: 13px;
+    border-radius: 12px;
+    background: #f1f5ef;
+    text-align: center;
+}
+
+
+.code-box span {
+    display: block;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    color: #9aa39c;
+}
+
+
+.code-box strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    color: #365b3c;
+}
+
+
+/* INFO */
+
+.booking-info {
+    margin-top: 13px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7px;
+}
+
+
+.booking-info div {
+    padding: 10px;
+    border-radius: 10px;
+    background: #f7f8f6;
+}
+
+
+.booking-info small {
+    display: block;
+    font-size: 7px;
+    color: #9aa39c;
+}
+
+
+.booking-info strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 8px;
+    color: #566758;
+}
+
+
+/* CANCEL */
+
+.cancel-btn {
+    width: 100%;
+    height: 40px;
+    margin-top: 13px;
+    border: 1px solid #dfe6dd;
+    border-radius: 11px;
+    background: white;
+    color: #8b625d;
+    font-family: "Montserrat", sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.cancel-btn:hover {
+    background: #faf3f2;
+}
+
+
+/* EMPTY */
+
+.empty {
+    display: none;
+    padding: 45px 25px;
+    text-align: center;
+}
+
+
+.empty-icon {
+    font-size: 38px;
+}
+
+
+.empty h3 {
+    margin-top: 12px;
+    font-family: "Belleza", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    color: #365b3c;
+}
+
+
+.empty p {
+    margin-top: 6px;
+    font-size: 9px;
+    color: #89938b;
+}
+
+
+.book-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    margin-top: 18px;
+    padding: 0 18px;
+    border-radius: 12px;
+    background: #365b3c;
+    color: white;
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 15px 19px;
+    }
+
+    .hero {
+        padding: 31px 19px 27px;
+    }
+
+    .booking-list {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+
+}
+
+.cancelled {
+    background: #f3e8e6;
+    color: #986d67;
+}
+
+.cancelled-text {
+    margin-top: 13px;
+    padding: 11px;
+    border-radius: 10px;
+    background: #f8f3f2;
+    color: #9a716b;
+    text-align: center;
+    font-size: 8px;
+}
+
+/* ==========================================
+   ACTION BUTTON
+========================================== */
+
+.action-buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 13px;
+
+}
+
+
+.cancel-btn {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: 1px solid #dfe6dd;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: #8b625d;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+.cancel-btn:hover {
+
+    background: #faf3f2;
+
+}
+
+
+/* TOMBOL HAPUS */
+
+.delete-btn {
+
+    width: 100%;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #f3eeee;
+
+    color: #9a6862;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #eadede;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* BOOKING DIBATALKAN */
+
+.cancelled {
+
+    background: #f3e8e6;
+
+    color: #986d67;
+
+}
+
+
+.cancelled-text {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border-radius: 10px;
+
+    background: #f8f3f2;
+
+    color: #9a716b;
+
+    text-align: center;
+
+    font-size: 8px;
+
+}
+
+.delete-btn {
+
+    width: 100%;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #f3eeee;
+
+    color: #9a6862;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.delete-btn:hover {
+
+    background: #eadede;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* HAPUS TIDAK BISA DIGUNAKAN */
+
+.disabled-delete {
+
+    background: #eeeeec;
+
+    color: #b1b5b0;
+
+    cursor: not-allowed;
+
+}
+
+
+.disabled-delete:hover {
+
+    background: #eeeeec;
+
+    transform: none;
+
+}

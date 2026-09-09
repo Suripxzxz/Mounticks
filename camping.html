@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Camping Spot - Mounticks</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+
+    <link rel="stylesheet" href="camping.css">
+</head>
+
+
+<body>
+
+    <div class="camping-page">
+
+        <!-- HEADER -->
+        <header class="camping-header">
+
+            <a href="Home.html" class="back-btn">
+                ←
+            </a>
+
+            <h1>Camping Spot</h1>
+
+            <div class="header-space"></div>
+
+        </header>
+
+
+        <!-- JUDUL -->
+        <section class="hero-text">
+
+            <div class="small-line"></div>
+
+            <h2>
+                Temukan tempat<br>
+                <span>untuk beristirahat.</span>
+            </h2>
+
+            <p>
+                Pilih camping spot terbaik untuk
+                menemani perjalanan pendakianmu.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <div class="search-container">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari camping spot..."
+                onkeyup="searchSpot()">
+
+        </div>
+
+
+        <!-- FILTER -->
+        <div class="filter-list">
+
+            <button
+                class="filter active"
+                onclick="filterSpot('all', this)">
+                Semua
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterSpot('gunung', this)">
+                Gunung
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterSpot('danau', this)">
+                Danau
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterSpot('hutan', this)">
+                Hutan
+            </button>
+
+        </div>
+
+
+        <!-- CAMPING SPOTS -->
+        <main class="spot-list">
+
+
+            <!-- SPOT 1 -->
+            <article
+                class="spot-card"
+                data-category="gunung"
+                data-name="Ranu Kumbolo">
+
+                <div class="spot-image ranu">
+
+                    <span class="spot-tag">
+                        Gunung
+                    </span>
+
+                </div>
+
+
+                <div class="spot-content">
+
+                    <div class="spot-heading">
+
+                        <div>
+
+                            <h3>
+                                Ranu Kumbolo
+                            </h3>
+
+                            <p class="location">
+                                📍 Semeru, Jawa Timur
+                            </p>
+
+                        </div>
+
+                        <span class="rating">
+                            ★ 4.9
+                        </span>
+
+                    </div>
+
+
+                    <p class="description">
+                        Tempat camping dengan pemandangan
+                        danau yang indah di kawasan Gunung Semeru.
+                    </p>
+
+
+                    <div class="facilities">
+
+                        <span>⛺ Camping</span>
+                        <span>🔥 Api unggun</span>
+                        <span>🚿 Toilet</span>
+
+                    </div>
+
+
+                    <div class="spot-footer">
+
+                        <div class="price">
+
+                            <small>
+                                Mulai dari
+                            </small>
+
+                            <strong>
+                                Rp75.000
+                            </strong>
+
+                            <small>
+                                / malam
+                            </small>
+
+                        </div>
+
+
+                        <button
+                            class="choose-btn"
+                            onclick="chooseSpot('Ranu Kumbolo', 'Rp75.000')">
+
+                            Pilih Spot
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- SPOT 2 -->
+            <article
+                class="spot-card"
+                data-category="danau"
+                data-name="Telaga Warna">
+
+                <div class="spot-image telaga">
+
+                    <span class="spot-tag">
+                        Danau
+                    </span>
+
+                </div>
+
+
+                <div class="spot-content">
+
+                    <div class="spot-heading">
+
+                        <div>
+
+                            <h3>
+                                Telaga Warna
+                            </h3>
+
+                            <p class="location">
+                                📍 Dieng, Jawa Tengah
+                            </p>
+
+                        </div>
+
+                        <span class="rating">
+                            ★ 4.8
+                        </span>
+
+                    </div>
+
+
+                    <p class="description">
+                        Camping di sekitar danau dengan
+                        suasana sejuk dan pemandangan alam.
+                    </p>
+
+
+                    <div class="facilities">
+
+                        <span>⛺ Camping</span>
+                        <span>🌲 Alam</span>
+                        <span>🚿 Toilet</span>
+
+                    </div>
+
+
+                    <div class="spot-footer">
+
+                        <div class="price">
+
+                            <small>
+                                Mulai dari
+                            </small>
+
+                            <strong>
+                                Rp60.000
+                            </strong>
+
+                            <small>
+                                / malam
+                            </small>
+
+                        </div>
+
+
+                        <button
+                            class="choose-btn"
+                            onclick="chooseSpot('Telaga Warna', 'Rp60.000')">
+
+                            Pilih Spot
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- SPOT 3 -->
+            <article
+                class="spot-card"
+                data-category="hutan"
+                data-name="Pinus Camp">
+
+                <div class="spot-image pinus">
+
+                    <span class="spot-tag">
+                        Hutan
+                    </span>
+
+                </div>
+
+
+                <div class="spot-content">
+
+                    <div class="spot-heading">
+
+                        <div>
+
+                            <h3>
+                                Pinus Camp
+                            </h3>
+
+                            <p class="location">
+                                📍 Bandung, Jawa Barat
+                            </p>
+
+                        </div>
+
+                        <span class="rating">
+                            ★ 4.7
+                        </span>
+
+                    </div>
+
+
+                    <p class="description">
+                        Camping di tengah hutan pinus dengan
+                        suasana tenang dan udara yang sejuk.
+                    </p>
+
+
+                    <div class="facilities">
+
+                        <span>⛺ Camping</span>
+                        <span>🌲 Pinus</span>
+                        <span>🚗 Parkir</span>
+
+                    </div>
+
+
+                    <div class="spot-footer">
+
+                        <div class="price">
+
+                            <small>
+                                Mulai dari
+                            </small>
+
+                            <strong>
+                                Rp50.000
+                            </strong>
+
+                            <small>
+                                / malam
+                            </small>
+
+                        </div>
+
+
+                        <button
+                            class="choose-btn"
+                            onclick="chooseSpot('Pinus Camp', 'Rp50.000')">
+
+                            Pilih Spot
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </main>
+
+
+        <!-- EMPTY -->
+        <div
+            class="empty"
+            id="empty">
+
+            <div class="empty-icon">
+                🏕
+            </div>
+
+            <h3>
+                Camping spot tidak ditemukan
+            </h3>
+
+            <p>
+                Coba gunakan kata pencarian lain.
+            </p>
+
+        </div>
+
+
+        <!-- TIPS -->
+        <section class="tips">
+
+            <div class="tips-icon">
+                ✦
+            </div>
+
+            <div>
+
+                <h4>
+                    Tips sebelum camping
+                </h4>
+
+                <p>
+                    Cek cuaca, siapkan perlengkapan,
+                    dan jangan lupa menjaga kebersihan alam.
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        let currentCategory = "all";
+
+
+        /* FILTER */
+
+        function filterSpot(category, button) {
+
+            currentCategory = category;
+
+
+            document
+                .querySelectorAll(".filter")
+                .forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+
+            button.classList.add("active");
+
+
+            showSpots();
+
+        }
+
+
+        /* SEARCH */
+
+        function searchSpot() {
+
+            showSpots();
+
+        }
+
+
+        /* TAMPILKAN SPOT */
+
+        function showSpots() {
+
+            const keyword =
+                document
+                    .getElementById("searchInput")
+                    .value
+                    .toLowerCase();
+
+
+            const cards =
+                document.querySelectorAll(".spot-card");
+
+
+            let total = 0;
+
+
+            cards.forEach(card => {
+
+                const name =
+                    card.dataset.name.toLowerCase();
+
+                const category =
+                    card.dataset.category;
+
+
+                const matchName =
+                    name.includes(keyword);
+
+                const matchCategory =
+                    currentCategory === "all" ||
+                    category === currentCategory;
+
+
+                if (
+                    matchName &&
+                    matchCategory
+                ) {
+
+                    card.style.display = "block";
+
+                    total++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            document.getElementById("empty").style.display =
+                total === 0 ? "block" : "none";
+
+        }
+
+
+        /* PILIH SPOT */
+
+        function chooseSpot(name, price) {
+
+            localStorage.setItem(
+                "campingSpot",
+                JSON.stringify({
+                    name: name,
+                    price: price
+                })
+            );
+
+
+            alert(
+                name +
+                " berhasil dipilih!"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

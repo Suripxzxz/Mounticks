@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Pendakian - Mounticks</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="tiket.css">
+
+    <link rel="stylesheet" href="tiket.css">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header class="header">
+
+            <a href="Home.html" class="back-btn">←</a>
+
+            <h1>Booking Pendakian</h1>
+
+            <div class="header-space"></div>
+
+        </header>
+
+
+        <section class="hero">
+
+            <span class="line"></span>
+
+            <h2>
+                Siap menuju<br>
+                <em>puncak?</em>
+            </h2>
+
+            <p>
+                Pilih gunung dan tanggal pendakianmu,
+                lalu lakukan booking tiket.
+            </p>
+
+        </section>
+
+
+        <main class="booking-container">
+
+            <form id="bookingForm">
+
+
+                <div class="form-group">
+
+                    <label>Pilih Gunung</label>
+
+                    <select id="mountain" required>
+
+                        <option value="">
+                            Pilih gunung
+                        </option>
+
+                        <option value="Gunung Gede">
+                            Gunung Gede
+                        </option>
+
+                        <option value="Gunung Pangrango">
+                            Gunung Pangrango
+                        </option>
+
+                        <option value="Gunung Papandayan">
+                            Gunung Papandayan
+                        </option>
+
+                        <option value="Gunung Merbabu">
+                            Gunung Merbabu
+                        </option>
+
+                        <option value="Gunung Semeru">
+                            Gunung Semeru
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>Tanggal Pendakian</label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Jumlah Pendaki</label>
+
+                        <input
+                            type="number"
+                            id="people"
+                            min="1"
+                            max="100"
+                            value="1"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Nama Pemesan</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Masukkan nama"
+                        required>
+
+                </div>
+
+
+                <div class="ticket-info">
+
+                    <div>
+
+                        <span>Harga booking</span>
+
+                        <strong>
+                            Rp50.000 / orang
+                        </strong>
+
+                    </div>
+
+                    <div class="ticket-icon">
+                        🎟
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="booking-btn">
+
+                    Booking Tiket
+
+                </button>
+
+            </form>
+
+        </main>
+
+
+        <!-- HASIL BOOKING -->
+
+        <div
+            class="success-modal"
+            id="successModal">
+
+            <div class="success-card">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    Booking berhasil!
+                </h2>
+
+                <p>
+                    Simpan kode booking ini untuk
+                    digunakan saat pendakian.
+                </p>
+
+
+                <div class="booking-code">
+
+                    <small>
+                        KODE BOOKING
+                    </small>
+
+                    <strong id="bookingCode">
+                        MOUNT-000000
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-detail">
+
+                    <div>
+                        <span>Gunung</span>
+                        <strong id="resultMountain"></strong>
+                    </div>
+
+                    <div>
+                        <span>Tanggal</span>
+                        <strong id="resultDate"></strong>
+                    </div>
+
+                    <div>
+                        <span>Pendaki</span>
+                        <strong id="resultPeople"></strong>
+                    </div>
+
+                    <div>
+                        <span>Total</span>
+                        <strong id="resultTotal"></strong>
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="done-btn"
+                    onclick="goHistory()">
+
+                    Lihat Riwayat Booking
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="tiket.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,936 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   ROOT
+========================= */
+
+:root {
+
+    --green: #365b3c;
+    --green-dark: #294a30;
+
+    --sage: #eef3ec;
+    --sage-dark: #dfe9dc;
+
+    --cream: #fafbf8;
+
+    --text: #405444;
+    --muted: #89938b;
+
+    --border: #e1e8df;
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    background: #e7ebe6;
+
+    color: var(--text);
+
+    font-family: "Montserrat", sans-serif;
+
+}
+
+
+/* =========================
+   MAIN PAGE
+========================= */
+
+.camping-page {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding-bottom: 50px;
+
+    background: var(--cream);
+
+    box-shadow:
+        0 0 40px rgba(40, 63, 44, 0.10);
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.camping-header {
+
+    height: 75px;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.camping-header h1 {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: "Belleza", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    color: var(--green);
+
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-btn {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--sage);
+
+    color: var(--green);
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    transition: .2s;
+
+}
+
+
+.back-btn:hover {
+
+    background: var(--green);
+
+    color: white;
+
+    transform: translateX(-3px);
+
+}
+
+
+.header-space {
+
+    width: 43px;
+
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.hero-text {
+
+    padding: 38px 27px 25px;
+
+}
+
+
+.small-line {
+
+    width: 35px;
+
+    height: 3px;
+
+    margin-bottom: 13px;
+
+    border-radius: 5px;
+
+    background: #7f9a83;
+
+}
+
+
+.hero-text h2 {
+
+    font-family: "Belleza", sans-serif;
+
+    font-size: 34px;
+
+    line-height: 1.08;
+
+    font-weight: 400;
+
+    color: var(--green);
+
+}
+
+
+.hero-text h2 span {
+
+    font-style: italic;
+
+}
+
+
+.hero-text p {
+
+    margin-top: 11px;
+
+    max-width: 430px;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-container {
+
+    height: 52px;
+
+    margin: 0 27px 15px;
+
+    padding: 0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 15px rgba(47, 71, 51, 0.05);
+
+}
+
+
+.search-icon {
+
+    font-size: 25px;
+
+    color: #7f9181;
+
+}
+
+
+.search-container input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 11px;
+
+    color: var(--text);
+
+}
+
+
+.search-container input::placeholder {
+
+    color: #a0aaa2;
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+.filter-list {
+
+    display: flex;
+
+    gap: 8px;
+
+    padding: 0 27px 23px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+}
+
+
+.filter-list::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+.filter {
+
+    flex-shrink: 0;
+
+    padding: 9px 16px;
+
+    border: 1px solid #dce5da;
+
+    border-radius: 20px;
+
+    background: white;
+
+    color: #718074;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.filter:hover {
+
+    border-color: #8da48f;
+
+}
+
+
+.filter.active {
+
+    background: var(--green);
+
+    border-color: var(--green);
+
+    color: white;
+
+}
+
+
+/* =========================
+   SPOT LIST
+========================= */
+
+.spot-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 0 27px;
+
+}
+
+
+/* =========================
+   SPOT CARD
+========================= */
+
+.spot-card {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 7px 22px rgba(45, 70, 49, 0.07);
+
+    transition: .25s ease;
+
+}
+
+
+.spot-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 13px 28px rgba(45, 70, 49, 0.12);
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.spot-image {
+
+    width: 100%;
+
+    height: 210px;
+
+    position: relative;
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+/* RANU */
+
+.ranu {
+
+    background-image:
+        linear-gradient(
+            rgba(20, 45, 28, .05),
+            rgba(20, 45, 28, .22)
+        ),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85");
+
+}
+
+
+/* TELAGA */
+
+.telaga {
+
+    background-image:
+        linear-gradient(
+            rgba(20, 45, 28, .05),
+            rgba(20, 45, 28, .22)
+        ),
+        url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=85");
+
+}
+
+
+/* PINUS */
+
+.pinus {
+
+    background-image:
+        linear-gradient(
+            rgba(20, 45, 28, .05),
+            rgba(20, 45, 28, .22)
+        ),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1000&q=85");
+
+}
+
+
+/* =========================
+   TAG
+========================= */
+
+.spot-tag {
+
+    position: absolute;
+
+    top: 14px;
+
+    left: 14px;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.91);
+
+    color: var(--green);
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.spot-content {
+
+    padding: 19px 20px 20px;
+
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.spot-heading {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+}
+
+
+.spot-heading h3 {
+
+    font-family: "Belleza", sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 400;
+
+    color: var(--green);
+
+}
+
+
+.location {
+
+    margin-top: 5px;
+
+    font-size: 9px;
+
+    color: #8a958d;
+
+}
+
+
+/* =========================
+   RATING
+========================= */
+
+.rating {
+
+    flex-shrink: 0;
+
+    padding: 6px 9px;
+
+    border-radius: 10px;
+
+    background: #f1f6ef;
+
+    color: #667c69;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+
+    margin-top: 14px;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+    color: #7f8981;
+
+}
+
+
+/* =========================
+   FACILITIES
+========================= */
+
+.facilities {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 15px;
+
+}
+
+
+.facilities span {
+
+    padding: 7px 9px;
+
+    border-radius: 9px;
+
+    background: #f4f7f3;
+
+    color: #768279;
+
+    font-size: 8px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.spot-footer {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #edf0ec;
+
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.price {
+
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    column-gap: 4px;
+
+}
+
+
+.price small {
+
+    width: 100%;
+
+    margin-bottom: 3px;
+
+    font-size: 8px;
+
+    color: #9aa39c;
+
+}
+
+
+.price strong {
+
+    font-size: 15px;
+
+    color: var(--green);
+
+}
+
+
+/* =========================
+   CHOOSE BUTTON
+========================= */
+
+.choose-btn {
+
+    padding: 10px 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.choose-btn:hover {
+
+    background: var(--green-dark);
+
+    transform: translateX(2px);
+
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+
+    display: none;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+}
+
+
+.empty-icon {
+
+    font-size: 38px;
+
+}
+
+
+.empty h3 {
+
+    margin-top: 12px;
+
+    font-family: "Belleza", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+}
+
+
+.empty p {
+
+    margin-top: 6px;
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================
+   TIPS
+========================= */
+
+.tips {
+
+    margin: 28px 27px 0;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: var(--sage);
+
+    border: 1px solid #e1e9df;
+
+    border-radius: 17px;
+
+}
+
+
+.tips-icon {
+
+    width: 35px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: var(--green);
+
+}
+
+
+.tips h4 {
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #506253;
+
+}
+
+
+.tips p {
+
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    color: #89938b;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .camping-header {
+
+        padding: 15px 19px;
+
+    }
+
+
+    .camping-header h1 {
+
+        font-size: 20px;
+
+    }
+
+
+    .hero-text {
+
+        padding: 31px 19px 23px;
+
+    }
+
+
+    .hero-text h2 {
+
+        font-size: 30px;
+
+    }
+
+
+    .search-container {
+
+        margin-left: 19px;
+
+        margin-right: 19px;
+
+    }
+
+
+    .filter-list {
+
+        padding-left: 19px;
+
+        padding-right: 19px;
+
+    }
+
+
+    .spot-list {
+
+        padding-left: 19px;
+
+        padding-right: 19px;
+
+    }
+
+
+    .spot-image {
+
+        height: 190px;
+
+    }
+
+
+    .spot-content {
+
+        padding: 17px;
+
+    }
+
+
+    .spot-heading h3 {
+
+        font-size: 21px;
+
+    }
+
+
+    .tips {
+
+        margin-left: 19px;
+
+        margin-right: 19px;
+
+    }
+
+}
