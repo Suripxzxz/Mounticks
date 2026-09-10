@@ -282,3 +282,319 @@ body {
     transform: translateY(-5px);
 }
 
+/* ==========================================
+   PENGATURAN
+========================================== */
+
+.settings-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(35, 55, 39, .45);
+    backdrop-filter: blur(4px);
+}
+
+.settings-overlay.show {
+    display: flex;
+}
+
+
+.settings-modal {
+    width: 100%;
+    max-width: 390px;
+
+    position: relative;
+
+    padding: 27px 22px 22px;
+
+    background: #fafbf8;
+
+    border: 1px solid #e1e8df;
+    border-radius: 25px;
+
+    box-shadow: 0 15px 45px rgba(40, 63, 44, .2);
+
+    animation: settingsIn .2s ease;
+}
+
+
+@keyframes settingsIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+.settings-close {
+    position: absolute;
+
+    top: 14px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #eef3ec;
+    color: #365b3c;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+.settings-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    border-radius: 16px;
+
+    background: #e6eee2;
+
+    font-size: 25px;
+}
+
+
+.settings-modal h2 {
+    margin-top: 13px;
+
+    text-align: center;
+
+    font-family: "Belleza", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+
+    color: #365b3c;
+}
+
+
+.settings-subtitle {
+    margin-top: 5px;
+
+    text-align: center;
+
+    font-size: 8px;
+
+    color: #89938b;
+}
+
+
+/* AKUN */
+
+.settings-account {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 13px;
+
+    border-radius: 15px;
+
+    background: #eef3ec;
+}
+
+
+.settings-avatar {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: white;
+
+    font-size: 19px;
+}
+
+
+.settings-account strong {
+    display: block;
+
+    font-size: 10px;
+
+    color: #365b3c;
+}
+
+
+.settings-account span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 7px;
+
+    color: #89938b;
+}
+
+
+/* MENU */
+
+.settings-menu {
+    margin-top: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.settings-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 12px;
+
+    border: 1px solid #e1e8df;
+    border-radius: 13px;
+
+    background: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.settings-item:hover {
+    background: #f2f5f0;
+    transform: translateY(-1px);
+}
+
+
+.settings-item > span {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #eef3ec;
+
+    font-size: 15px;
+}
+
+
+.settings-item div {
+    flex: 1;
+}
+
+
+.settings-item strong {
+    display: block;
+
+    font-size: 8px;
+
+    color: #405444;
+}
+
+
+.settings-item small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 6.5px;
+
+    color: #9aa39c;
+}
+
+
+.settings-item b {
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #9aa39c;
+}
+
+
+/* LOGOUT */
+
+.logout-btn {
+    width: 100%;
+    height: 40px;
+
+    margin-top: 13px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: #f3e8e6;
+
+    color: #986d67;
+
+    font-family: "Montserrat", sans-serif;
+
+    font-size: 8px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.logout-btn:hover {
+    background: #eadede;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .settings-overlay {
+        align-items: flex-end;
+
+        padding: 0;
+    }
+
+
+    .settings-modal {
+        max-width: none;
+
+        border-radius: 25px 25px 0 0;
+
+        padding: 25px 20px 22px;
+    }
+
+}
