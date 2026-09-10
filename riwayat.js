@@ -1,31 +1,80 @@
-const bookingList =
-    document.getElementById("bookingList");
-
-const empty =
-    document.getElementById("empty");
+const bookingList = document.getElementById("bookingList");
+const empty = document.getElementById("empty");
 
 
 /* ==========================================
-   AMBIL DATA BOOKING
+   AMBIL BOOKING GUNUNG
 ========================================== */
 
-function getBookings() {
-
+function getMountainBookings() {
     return JSON.parse(
         localStorage.getItem("bookingHistory")
     ) || [];
+}
+
+
+/* ==========================================
+   AMBIL BOOKING CAMPING
+========================================== */
+
+function getCampingBookings() {
+    return JSON.parse(
+        localStorage.getItem("campingHistory")
+    ) || [];
+}
+
+
+/* ==========================================
+   GABUNGKAN SEMUA BOOKING
+========================================== */
+
+function getAllBookings() {
+
+    const mountainBookings = getMountainBookings();
+    const campingBookings = getCampingBookings();
+
+    // Tambahkan penanda jenis booking
+    const mountainData = mountainBookings.map(function (booking) {
+        return {
+            ...booking,
+            type: "Gunung"
+        };
+    });
+
+    const campingData = campingBookings.map(function (booking) {
+        return {
+            ...booking,
+            type: "Camping"
+        };
+    });
+
+    return [...mountainData, ...campingData];
 
 }
 
 
 /* ==========================================
-   SIMPAN DATA BOOKING
+   SIMPAN BOOKING GUNUNG
 ========================================== */
 
-function saveBookings(bookings) {
+function saveMountainBookings(bookings) {
 
     localStorage.setItem(
         "bookingHistory",
+        JSON.stringify(bookings)
+    );
+
+}
+
+
+/* ==========================================
+   SIMPAN BOOKING CAMPING
+========================================== */
+
+function saveCampingBookings(bookings) {
+
+    localStorage.setItem(
+        "campingHistory",
         JSON.stringify(bookings)
     );
 
@@ -38,7 +87,7 @@ function saveBookings(bookings) {
 
 function renderBookings() {
 
-    const bookings = getBookings();
+    const bookings = getAllBookings();
 
     bookingList.innerHTML = "";
 
@@ -57,14 +106,31 @@ function renderBookings() {
 
     bookings.forEach(function (booking) {
 
-        const card =
-            document.createElement("div");
+        const card = document.createElement("div");
 
         card.className = "booking-card";
 
 
         const isCancelled =
             booking.status === "Booking Dibatalkan";
+
+
+        const isCamping =
+            booking.type === "Camping";
+
+
+        // Nama tempat
+        const placeName =
+            isCamping
+                ? booking.spot
+                : booking.mountain;
+
+
+        // Label
+        const placeLabel =
+            isCamping
+                ? "Camping Spot"
+                : "Gunung";
 
 
         card.innerHTML = `
@@ -74,9 +140,7 @@ function renderBookings() {
                 <div>
 
                     <span class="status ${
-                        isCancelled
-                            ? "cancelled"
-                            : ""
+                        isCancelled ? "cancelled" : ""
                     }">
 
                         ${booking.status}
@@ -85,8 +149,14 @@ function renderBookings() {
 
 
                     <h3>
-                        ${booking.mountain}
+                        ${placeName}
                     </h3>
+
+
+                    <p>
+                        ${isCamping ? "⛺" : "🏔️"}
+                        ${placeLabel}
+                    </p>
 
 
                     <p>
@@ -97,7 +167,9 @@ function renderBookings() {
 
 
                 <div class="ticket-symbol">
-                    🎟
+
+                    ${isCamping ? "⛺" : "🎟"}
+
                 </div>
 
             </div>
@@ -134,7 +206,7 @@ function renderBookings() {
                 <div>
 
                     <small>
-                        Pendaki
+                        Jumlah
                     </small>
 
                     <strong>
@@ -167,7 +239,7 @@ function renderBookings() {
                     `
                     <button
                         class="cancel-btn"
-                        onclick="cancelBooking('${booking.code}')">
+                        onclick="cancelBooking('${booking.code}', '${booking.type}')">
 
                         Batalkan Booking
 
@@ -190,7 +262,7 @@ function renderBookings() {
                     `
                     <button
                         class="delete-btn"
-                        onclick="deleteBooking('${booking.code}')">
+                        onclick="deleteBooking('${booking.code}', '${booking.type}')">
 
                         Hapus Riwayat
 
@@ -224,12 +296,11 @@ function renderBookings() {
    BATALKAN BOOKING
 ========================================== */
 
-function cancelBooking(code) {
+function cancelBooking(code, type) {
 
-    const yakin =
-        confirm(
-            "Yakin ingin membatalkan booking ini?"
-        );
+    const yakin = confirm(
+        "Yakin ingin membatalkan booking ini?"
+    );
 
 
     if (!yakin) {
@@ -237,29 +308,62 @@ function cancelBooking(code) {
     }
 
 
-    let bookings = getBookings();
+    // ==============================
+    // BOOKING GUNUNG
+    // ==============================
 
+    if (type === "Gunung") {
 
-    const booking =
-        bookings.find(
+        let bookings = getMountainBookings();
+
+        const booking = bookings.find(
             item => item.code === code
         );
 
 
-    if (!booking) {
+        if (!booking) {
 
-        alert("Booking tidak ditemukan.");
+            alert("Booking tidak ditemukan.");
 
-        return;
+            return;
+
+        }
+
+
+        booking.status = "Booking Dibatalkan";
+
+        saveMountainBookings(bookings);
 
     }
 
 
-    booking.status =
-        "Booking Dibatalkan";
+    // ==============================
+    // BOOKING CAMPING
+    // ==============================
+
+    else if (type === "Camping") {
+
+        let bookings = getCampingBookings();
+
+        const booking = bookings.find(
+            item => item.code === code
+        );
 
 
-    saveBookings(bookings);
+        if (!booking) {
+
+            alert("Booking camping tidak ditemukan.");
+
+            return;
+
+        }
+
+
+        booking.status = "Booking Dibatalkan";
+
+        saveCampingBookings(bookings);
+
+    }
 
 
     renderBookings();
@@ -278,15 +382,36 @@ function cancelBooking(code) {
    HAPUS BOOKING
 ========================================== */
 
-function deleteBooking(code) {
+function deleteBooking(code, type) {
 
-    let bookings = getBookings();
+    let bookings;
 
 
-    const booking =
-        bookings.find(
-            item => item.code === code
-        );
+    // ==============================
+    // BOOKING GUNUNG
+    // ==============================
+
+    if (type === "Gunung") {
+
+        bookings = getMountainBookings();
+
+    }
+
+
+    // ==============================
+    // BOOKING CAMPING
+    // ==============================
+
+    else if (type === "Camping") {
+
+        bookings = getCampingBookings();
+
+    }
+
+
+    const booking = bookings.find(
+        item => item.code === code
+    );
 
 
     if (!booking) {
@@ -314,10 +439,10 @@ function deleteBooking(code) {
     }
 
 
-    const yakin =
-        confirm(
-            "Hapus riwayat booking ini?\n\nData yang dihapus tidak dapat dikembalikan."
-        );
+    const yakin = confirm(
+        "Hapus riwayat booking ini?\n\n" +
+        "Data yang dihapus tidak dapat dikembalikan."
+    );
 
 
     if (!yakin) {
@@ -325,13 +450,21 @@ function deleteBooking(code) {
     }
 
 
-    bookings =
-        bookings.filter(
-            item => item.code !== code
-        );
+    bookings = bookings.filter(
+        item => item.code !== code
+    );
 
 
-    saveBookings(bookings);
+    if (type === "Gunung") {
+
+        saveMountainBookings(bookings);
+
+    }
+    else if (type === "Camping") {
+
+        saveCampingBookings(bookings);
+
+    }
 
 
     renderBookings();
@@ -358,7 +491,7 @@ function deleteActiveBooking() {
 
 function formatDate(date) {
 
-    return new Date(date)
+    return new Date(date + "T00:00:00")
         .toLocaleDateString(
             "id-ID",
             {
@@ -387,6 +520,17 @@ function formatRupiah(number) {
     ).format(number);
 
 }
+
+
+/* ==========================================
+   UPDATE SAAT KEMBALI KE HALAMAN
+========================================== */
+
+window.addEventListener("pageshow", function () {
+
+    renderBookings();
+
+});
 
 
 /* ==========================================
