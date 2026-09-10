@@ -211,3 +211,36 @@ window.addEventListener(
 
     }
 );
+
+// ==========================================
+// TAMPILKAN AKUN YANG SEDANG LOGIN
+// ==========================================
+
+function loadJadwalUser() {
+
+    const usernameElement =
+        document.getElementById("jadwalUsername");
+
+    if (!usernameElement) return;
+
+    const currentUser =
+        JSON.parse(
+            localStorage.getItem("currentUser")
+        );
+
+    if (currentUser) {
+
+        usernameElement.textContent =
+            currentUser.username ||
+            currentUser.name ||
+            "User";
+
+    } else {
+
+        usernameElement.textContent = "User";
+
+    }
+
+}
+
+loadJadwalUser();
