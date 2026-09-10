@@ -1,486 +1,152 @@
-const bookingList = document.getElementById("bookingList");
-const empty = document.getElementById("empty");
+/* ==========================================
+   JADWAL PENDAKIAN MOUNTICKS
+========================================== */
+
+const jadwalContainer =
+    document.getElementById("jadwalContainer");
 
 
 /* ==========================================
-   AMBIL BOOKING GUNUNG
+   AMBIL DATA BOOKING
 ========================================== */
 
-function getMountainBookings() {
+function getBookings() {
+
     return JSON.parse(
         localStorage.getItem("bookingHistory")
     ) || [];
-}
-
-
-/* ==========================================
-   AMBIL BOOKING CAMPING
-========================================== */
-
-function getCampingBookings() {
-    return JSON.parse(
-        localStorage.getItem("campingHistory")
-    ) || [];
-}
-
-
-/* ==========================================
-   GABUNGKAN SEMUA BOOKING
-========================================== */
-
-function getAllBookings() {
-
-    const mountainBookings = getMountainBookings();
-    const campingBookings = getCampingBookings();
-
-    // Tambahkan penanda jenis booking
-    const mountainData = mountainBookings.map(function (booking) {
-        return {
-            ...booking,
-            type: "Gunung"
-        };
-    });
-
-    const campingData = campingBookings.map(function (booking) {
-        return {
-            ...booking,
-            type: "Camping"
-        };
-    });
-
-    return [...mountainData, ...campingData];
 
 }
 
 
 /* ==========================================
-   SIMPAN BOOKING GUNUNG
+   TAMPILKAN JADWAL
 ========================================== */
 
-function saveMountainBookings(bookings) {
+function tampilkanJadwal() {
 
-    localStorage.setItem(
-        "bookingHistory",
-        JSON.stringify(bookings)
-    );
-
-}
+    const bookings = getBookings();
 
 
-/* ==========================================
-   SIMPAN BOOKING CAMPING
-========================================== */
-
-function saveCampingBookings(bookings) {
-
-    localStorage.setItem(
-        "campingHistory",
-        JSON.stringify(bookings)
-    );
-
-}
+    jadwalContainer.innerHTML = "";
 
 
-/* ==========================================
-   TAMPILKAN RIWAYAT
-========================================== */
+    /*
+       HANYA BOOKING YANG MASIH AKTIF
+    */
 
-function renderBookings() {
+    const jadwalAktif =
+        bookings.filter(function (booking) {
 
-    const bookings = getAllBookings();
+            return booking.status === "Booking Aktif";
 
-    bookingList.innerHTML = "";
+        });
 
 
-    if (bookings.length === 0) {
+    /* ==========================================
+       KALAU BELUM ADA JADWAL
+    ========================================== */
 
-        empty.style.display = "block";
+    if (jadwalAktif.length === 0) {
+
+        jadwalContainer.innerHTML = `
+
+            <div class="jadwal-kosong">
+
+                <div class="kosong-icon">
+                    🗓️
+                </div>
+
+                <h3>
+                    Belum ada jadwal
+                </h3>
+
+                <p>
+                    Booking pendakianmu akan
+                    muncul otomatis di sini.
+                </p>
+
+                <a href="tiket.html">
+                    Booking Sekarang
+                </a>
+
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    empty.style.display = "none";
+    /* ==========================================
+       BUAT KARTU JADWAL
+    ========================================== */
+
+    jadwalAktif.forEach(function (booking) {
+
+        const card =
+            document.createElement("div");
 
 
-    bookings.forEach(function (booking) {
-
-        const card = document.createElement("div");
-
-        card.className = "booking-card";
-
-
-        const isCancelled =
-            booking.status === "Booking Dibatalkan";
-
-
-        const isCamping =
-            booking.type === "Camping";
-
-
-        // Nama tempat
-        const placeName =
-            isCamping
-                ? booking.spot
-                : booking.mountain;
-
-
-        // Label
-        const placeLabel =
-            isCamping
-                ? "Camping Spot"
-                : "Gunung";
+        card.className =
+            "jadwal-card";
 
 
         card.innerHTML = `
 
-            <div class="booking-card-top">
+            <div class="jadwal-card-header">
 
-                <div>
+                <div class="tanggal-box">
 
-                    <span class="status ${
-                        isCancelled ? "cancelled" : ""
-                    }">
-
-                        ${booking.status}
-
+                    <span>
+                        ${getTanggal(booking.date)}
                     </span>
 
-
-                    <h3>
-                        ${placeName}
-                    </h3>
-
-
-                    <p>
-                        ${isCamping ? "⛺" : "🏔️"}
-                        ${placeLabel}
-                    </p>
-
-
-                    <p>
-                        📅 ${formatDate(booking.date)}
-                    </p>
+                    <strong>
+                        ${getBulan(booking.date)}
+                    </strong>
 
                 </div>
 
 
-                <div class="ticket-symbol">
-
-                    ${isCamping ? "⛺" : "🎟"}
-
+                <div class="status-jadwal">
+                    Booking Aktif
                 </div>
 
             </div>
 
 
-            <div class="code-box">
+            <div class="jadwal-card-content">
 
-                <span>
-                    KODE BOOKING
+                <span class="label-jadwal">
+                    JADWAL PENDAKIAN
                 </span>
 
-                <strong>
-                    ${booking.code}
-                </strong>
+                <h2>
+                    ${booking.mountain}
+                </h2>
 
-            </div>
+                <p>
+                    📅 ${formatDate(booking.date)}
+                </p>
 
+                <p>
+                    🎟 Kode: ${booking.code}
+                </p>
 
-            <div class="booking-info">
-
-                <div>
-
-                    <small>
-                        Pemesan
-                    </small>
-
-                    <strong>
-                        ${booking.name}
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <small>
-                        Jumlah
-                    </small>
-
-                    <strong>
-                        ${booking.people} orang
-                    </strong>
-
-                </div>
-
-
-                <div>
-
-                    <small>
-                        Total
-                    </small>
-
-                    <strong>
-                        ${formatRupiah(booking.total)}
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="action-buttons">
-
-                ${
-                    !isCancelled
-                    ?
-                    `
-                    <button
-                        class="cancel-btn"
-                        onclick="cancelBooking('${booking.code}', '${booking.type}')">
-
-                        Batalkan Booking
-
-                    </button>
-                    `
-                    :
-                    `
-                    <div class="cancelled-text">
-
-                        Booking ini sudah dibatalkan
-
-                    </div>
-                    `
-                }
-
-
-                ${
-                    isCancelled
-                    ?
-                    `
-                    <button
-                        class="delete-btn"
-                        onclick="deleteBooking('${booking.code}', '${booking.type}')">
-
-                        Hapus Riwayat
-
-                    </button>
-                    `
-                    :
-                    `
-                    <button
-                        class="delete-btn disabled-delete"
-                        onclick="deleteActiveBooking()">
-
-                        Hapus Riwayat
-
-                    </button>
-                    `
-                }
+                <p>
+                    👥 ${booking.people} orang
+                </p>
 
             </div>
 
         `;
 
 
-        bookingList.appendChild(card);
+        jadwalContainer.appendChild(card);
 
     });
-
-}
-
-
-/* ==========================================
-   BATALKAN BOOKING
-========================================== */
-
-function cancelBooking(code, type) {
-
-    const yakin = confirm(
-        "Yakin ingin membatalkan booking ini?"
-    );
-
-
-    if (!yakin) {
-        return;
-    }
-
-
-    // ==============================
-    // BOOKING GUNUNG
-    // ==============================
-
-    if (type === "Gunung") {
-
-        let bookings = getMountainBookings();
-
-        const booking = bookings.find(
-            item => item.code === code
-        );
-
-
-        if (!booking) {
-
-            alert("Booking tidak ditemukan.");
-
-            return;
-
-        }
-
-
-        booking.status = "Booking Dibatalkan";
-
-        saveMountainBookings(bookings);
-
-    }
-
-
-    // ==============================
-    // BOOKING CAMPING
-    // ==============================
-
-    else if (type === "Camping") {
-
-        let bookings = getCampingBookings();
-
-        const booking = bookings.find(
-            item => item.code === code
-        );
-
-
-        if (!booking) {
-
-            alert("Booking camping tidak ditemukan.");
-
-            return;
-
-        }
-
-
-        booking.status = "Booking Dibatalkan";
-
-        saveCampingBookings(bookings);
-
-    }
-
-
-    renderBookings();
-
-
-    alert(
-        "Booking " +
-        code +
-        " berhasil dibatalkan."
-    );
-
-}
-
-
-/* ==========================================
-   HAPUS BOOKING
-========================================== */
-
-function deleteBooking(code, type) {
-
-    let bookings;
-
-
-    // ==============================
-    // BOOKING GUNUNG
-    // ==============================
-
-    if (type === "Gunung") {
-
-        bookings = getMountainBookings();
-
-    }
-
-
-    // ==============================
-    // BOOKING CAMPING
-    // ==============================
-
-    else if (type === "Camping") {
-
-        bookings = getCampingBookings();
-
-    }
-
-
-    const booking = bookings.find(
-        item => item.code === code
-    );
-
-
-    if (!booking) {
-
-        alert("Booking tidak ditemukan.");
-
-        return;
-
-    }
-
-
-    /*
-       BOOKING MASIH AKTIF
-       TIDAK BOLEH DIHAPUS
-    */
-
-    if (booking.status !== "Booking Dibatalkan") {
-
-        alert(
-            "Booking harus dibatalkan terlebih dahulu sebelum menghapus riwayat."
-        );
-
-        return;
-
-    }
-
-
-    const yakin = confirm(
-        "Hapus riwayat booking ini?\n\n" +
-        "Data yang dihapus tidak dapat dikembalikan."
-    );
-
-
-    if (!yakin) {
-        return;
-    }
-
-
-    bookings = bookings.filter(
-        item => item.code !== code
-    );
-
-
-    if (type === "Gunung") {
-
-        saveMountainBookings(bookings);
-
-    }
-    else if (type === "Camping") {
-
-        saveCampingBookings(bookings);
-
-    }
-
-
-    renderBookings();
-
-}
-
-
-/* ==========================================
-   JIKA TEKAN HAPUS SAAT MASIH AKTIF
-========================================== */
-
-function deleteActiveBooking() {
-
-    alert(
-        "Kamu harus membatalkan booking terlebih dahulu."
-    );
 
 }
 
@@ -491,7 +157,7 @@ function deleteActiveBooking() {
 
 function formatDate(date) {
 
-    return new Date(date + "T00:00:00")
+    return new Date(date)
         .toLocaleDateString(
             "id-ID",
             {
@@ -504,37 +170,44 @@ function formatDate(date) {
 }
 
 
-/* ==========================================
-   FORMAT RUPIAH
-========================================== */
+function getTanggal(date) {
 
-function formatRupiah(number) {
-
-    return new Intl.NumberFormat(
-        "id-ID",
-        {
-            style: "currency",
-            currency: "IDR",
-            maximumFractionDigits: 0
-        }
-    ).format(number);
+    return new Date(date)
+        .getDate();
 
 }
 
 
-/* ==========================================
-   UPDATE SAAT KEMBALI KE HALAMAN
-========================================== */
+function getBulan(date) {
 
-window.addEventListener("pageshow", function () {
+    return new Date(date)
+        .toLocaleDateString(
+            "id-ID",
+            {
+                month: "short"
+            }
+        )
+        .toUpperCase();
 
-    renderBookings();
-
-});
+}
 
 
 /* ==========================================
    JALANKAN
 ========================================== */
 
-renderBookings();
+tampilkanJadwal();
+
+
+/* ==========================================
+   UPDATE SAAT KEMBALI KE HALAMAN
+========================================== */
+
+window.addEventListener(
+    "pageshow",
+    function () {
+
+        tampilkanJadwal();
+
+    }
+);
