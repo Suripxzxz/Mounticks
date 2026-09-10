@@ -14,7 +14,7 @@
 
         <!-- HEADER -->
         <header class="header">
-            <button class="icon-btn" onclick="showMessage('Pengaturan')">
+            <button class="icon-btn" onclick="showMessage()">
                 <img src="7.png" class="img-header" />
             </button>
 
@@ -102,5 +102,118 @@
     <script src="script.js"></script>
     <script src="data.js"></script>
 
+<!-- ==============================
+     MODAL PENGATURAN
+================================= -->
+
+<div class="settings-overlay" id="settingsOverlay">
+
+    <div class="settings-modal">
+
+        <button
+            class="settings-close"
+            onclick="closeSettings()">
+            ×
+        </button>
+
+        <div class="settings-icon">
+            ⚙
+        </div>
+
+        <h2>Pengaturan</h2>
+
+        <p class="settings-subtitle">
+            Kelola akun dan pengaturan Mounticks
+        </p>
+
+
+        <!-- AKUN -->
+
+        <div class="settings-account">
+
+            <div class="settings-avatar">
+                👤
+            </div>
+
+            <div>
+                <strong id="settingsUsername">
+                    User
+                </strong>
+
+                <span id="settingsEmail">
+                    user@email.com
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- PILIHAN -->
+
+        <div class="settings-menu">
+
+            <button
+                class="settings-item"
+                onclick="showAccountInfo()">
+
+                <span>👤</span>
+
+                <div>
+                    <strong>Akun Saya</strong>
+                    <small>Lihat informasi akun</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <button
+                class="settings-item"
+                onclick="showMessage('Fitur tema akan segera tersedia')">
+
+                <span>🎨</span>
+
+                <div>
+                    <strong>Tampilan</strong>
+                    <small>Pengaturan tampilan</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <button
+                class="settings-item"
+                onclick="showMessage('Mounticks versi demo')">
+
+                <span>ℹ️</span>
+
+                <div>
+                    <strong>Tentang Mounticks</strong>
+                    <small>Informasi aplikasi</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            Keluar dari Akun
+
+        </button>
+
+    </div>
+
+</div>
 </body>
 </html>
