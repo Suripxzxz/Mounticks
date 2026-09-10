@@ -178,7 +178,7 @@
                             class="choose-btn"
                             onclick="chooseSpot('Ranu Kumbolo', 'Rp75.000')">
 
-                            Pilih Spot
+                            Booking Spot
 
                         </button>
 
@@ -265,7 +265,7 @@
                             class="choose-btn"
                             onclick="chooseSpot('Telaga Warna', 'Rp60.000')">
 
-                            Pilih Spot
+                            Booking Spot
 
                         </button>
 
@@ -352,7 +352,7 @@
                             class="choose-btn"
                             onclick="chooseSpot('Pinus Camp', 'Rp50.000')">
 
-                            Pilih Spot
+                            Booking Spot
 
                         </button>
 
@@ -384,6 +384,34 @@
 
         </div>
 
+
+
+        <!-- BOOKING CAMPING MODAL -->
+        <div class="booking-overlay" id="bookingOverlay">
+            <div class="booking-modal">
+                <button class="booking-close" onclick="closeBooking()" aria-label="Tutup">×</button>
+                <div class="booking-modal-icon">⛺</div>
+                <span class="booking-label">BOOKING CAMPING</span>
+                <h2 id="bookingSpotName">Camping Spot</h2>
+                <p class="booking-price" id="bookingSpotPrice">Rp0 / malam</p>
+
+                <form id="campingBookingForm">
+                    <div class="booking-field">
+                        <label for="campingName">Nama Pemesan</label>
+                        <input type="text" id="campingName" placeholder="Masukkan nama" required>
+                    </div>
+                    <div class="booking-field">
+                        <label for="campingDate">Tanggal Camping</label>
+                        <input type="date" id="campingDate" required>
+                    </div>
+                    <div class="booking-field">
+                        <label for="campingPeople">Jumlah Orang</label>
+                        <input type="number" id="campingPeople" min="1" max="20" value="1" required>
+                    </div>
+                    <button type="submit" class="booking-submit">Konfirmasi Booking</button>
+                </form>
+            </div>
+        </div>
 
         <!-- TIPS -->
         <section class="tips">
@@ -505,24 +533,95 @@
         }
 
 
-        /* PILIH SPOT */
+
+        /* BOOKING CAMPING SPOT */
+
+        let selectedCampingSpot = null;
 
         function chooseSpot(name, price) {
+            selectedCampingSpot = { name: name, price: price };
 
-            localStorage.setItem(
-                "campingSpot",
-                JSON.stringify({
-                    name: name,
-                    price: price
-                })
+            localStorage.setItem("campingSpot", JSON.stringify(selectedCampingSpot));
+
+            document.getElementById("bookingSpotName").textContent = name;
+            document.getElementById("bookingSpotPrice").textContent = price + " / malam";
+
+            const today = new Date();
+            const localToday = new Date(
+                today.getTime() - today.getTimezoneOffset() * 60000
+            ).toISOString().split("T")[0];
+
+            document.getElementById("campingDate").min = localToday;
+            document.getElementById("bookingOverlay").classList.add("show");
+            document.body.classList.add("modal-open");
+        }
+
+        function closeBooking() {
+            document.getElementById("bookingOverlay").classList.remove("show");
+            document.body.classList.remove("modal-open");
+        }
+
+        document.getElementById("bookingOverlay").addEventListener("click", function(event) {
+            if (event.target === this) closeBooking();
+        });
+
+        document.getElementById("campingBookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            if (!selectedCampingSpot) return;
+
+            const name = document.getElementById("campingName").value.trim();
+            const date = document.getElementById("campingDate").value;
+            const people = Number(document.getElementById("campingPeople").value);
+
+            if (!name || !date || people < 1) {
+                alert("Lengkapi data booking terlebih dahulu.");
+                return;
+            }
+
+            const priceNumber = Number(
+                selectedCampingSpot.price.replace(/[^0-9]/g, "")
             );
 
+            const booking = {
+                code: "CAMP-" + Math.floor(100000 + Math.random() * 900000),
+                type: "Camping",
+                name: name,
+                spot: selectedCampingSpot.name,
+                date: date,
+                people: people,
+                price: priceNumber,
+                total: priceNumber * people,
+                status: "Booking Aktif",
+                createdAt: new Date().toISOString()
+            };
+
+            const bookings = JSON.parse(localStorage.getItem("campingHistory")) || [];
+            bookings.push(booking);
+            localStorage.setItem("campingHistory", JSON.stringify(bookings));
+            localStorage.setItem("lastCampingBooking", JSON.stringify(booking));
+
+            closeBooking();
 
             alert(
-                name +
-                " berhasil dipilih!"
+                "Booking berhasil!\n\n" +
+                "Spot: " + booking.spot + "\n" +
+                "Tanggal: " + formatCampingDate(booking.date) + "\n" +
+                "Jumlah orang: " + booking.people + "\n" +
+                "Total: Rp" + booking.total.toLocaleString("id-ID") + "\n" +
+                "Kode booking: " + booking.code
             );
 
+            document.getElementById("campingBookingForm").reset();
+            document.getElementById("campingPeople").value = 1;
+        });
+
+        function formatCampingDate(dateString) {
+            return new Date(dateString + "T00:00:00").toLocaleDateString("id-ID", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            });
         }
 
     </script>
