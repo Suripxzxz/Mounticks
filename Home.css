@@ -658,7 +658,7 @@ body {
 
 
 /* ==========================================
-   GREEN CURVE
+   GREEN CURVE - VERSI LEBIH NATURAL
 ========================================== */
 
 .green-curve {
@@ -666,16 +666,15 @@ body {
     z-index: 1;
 
     width: 115%;
-    height: 145px;
+    height: 90px;
 
     left: -7.5%;
-    bottom: auto;
-
-    border-radius: 50% 50% 0 0;
+    top: 610px;
 
     background: #365b3c;
-}
 
+    border-radius: 50% 50% 0 0;
+}
 
 /* ==========================================
    MENU CARD
