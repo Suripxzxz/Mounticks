@@ -598,3 +598,164 @@ body {
     }
 
 }
+
+/* ==========================================
+   FIX RESPONSIVE HP
+========================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* APP */
+
+.app {
+    width: 100%;
+    max-width: 700px;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   MENU ICON
+========================================== */
+
+.menu-icon {
+    width: 92px;
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px !important;
+    overflow: hidden;
+
+    background: #365b3c;
+}
+
+
+.menu-icon img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 22px !important;
+}
+
+
+/* ==========================================
+   GREEN CURVE
+========================================== */
+
+.green-curve {
+    position: absolute;
+    z-index: 1;
+
+    width: 115%;
+    height: 145px;
+
+    left: -7.5%;
+    bottom: auto;
+
+    border-radius: 50% 50% 0 0;
+
+    background: #365b3c;
+}
+
+
+/* ==========================================
+   MENU CARD
+========================================== */
+
+.menu-card {
+    position: relative;
+    z-index: 2;
+
+    min-height: 420px;
+
+    border-radius: 70px 70px 0 0;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    .app {
+        min-height: 100vh;
+    }
+
+
+    /* HERO JANGAN TERLALU PENDEK */
+
+    .hero {
+        min-height: 570px;
+    }
+
+
+    /* CURVE LEBIH KELIHATAN */
+
+    .green-curve {
+        height: 125px;
+
+        width: 125%;
+
+        left: -12.5%;
+
+        top: 500px;
+
+        border-radius: 50% 50% 0 0;
+    }
+
+
+    /* MENU */
+
+    .menu-card {
+        min-height: 470px;
+
+        margin-top: -5px;
+
+        padding-top: 65px;
+
+        border-radius: 65px 65px 0 0;
+    }
+
+
+    /* ICON */
+
+    .menu-icon {
+        width: 92px;
+        height: 92px;
+
+        border-radius: 20px !important;
+    }
+
+
+    .menu-icon img {
+        border-radius: 20px !important;
+    }
+
+
+    /* JARAK MENU */
+
+    .menu-container {
+        gap: 25px 35px;
+    }
+
+}
