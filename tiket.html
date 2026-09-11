@@ -12,7 +12,6 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="tiket.css">
 
     <link rel="stylesheet" href="tiket.css">
 </head>
@@ -21,6 +20,7 @@
 
     <div class="page">
 
+        <!-- HEADER -->
         <header class="header">
 
             <a href="Home.html" class="back-btn">←</a>
@@ -32,6 +32,7 @@
         </header>
 
 
+        <!-- HERO -->
         <section class="hero">
 
             <span class="line"></span>
@@ -49,14 +50,17 @@
         </section>
 
 
+        <!-- FORM BOOKING -->
         <main class="booking-container">
 
             <form id="bookingForm">
 
-
+                <!-- GUNUNG -->
                 <div class="form-group">
 
-                    <label>Pilih Gunung</label>
+                    <label for="mountain">
+                        Pilih Gunung
+                    </label>
 
                     <select id="mountain" required>
 
@@ -89,11 +93,14 @@
                 </div>
 
 
+                <!-- TANGGAL + JUMLAH -->
                 <div class="form-row">
 
                     <div class="form-group">
 
-                        <label>Tanggal Pendakian</label>
+                        <label for="date">
+                            Tanggal Pendakian
+                        </label>
 
                         <input
                             type="date"
@@ -105,7 +112,9 @@
 
                     <div class="form-group">
 
-                        <label>Jumlah Pendaki</label>
+                        <label for="people">
+                            Jumlah Pendaki
+                        </label>
 
                         <input
                             type="number"
@@ -120,9 +129,12 @@
                 </div>
 
 
+                <!-- NAMA -->
                 <div class="form-group">
 
-                    <label>Nama Pemesan</label>
+                    <label for="name">
+                        Nama Pemesan
+                    </label>
 
                     <input
                         type="text"
@@ -133,11 +145,14 @@
                 </div>
 
 
+                <!-- HARGA -->
                 <div class="ticket-info">
 
                     <div>
 
-                        <span>Harga booking</span>
+                        <span>
+                            Harga booking
+                        </span>
 
                         <strong>
                             Rp50.000 / orang
@@ -152,11 +167,12 @@
                 </div>
 
 
+                <!-- BUTTON -->
                 <button
                     type="submit"
                     class="booking-btn">
 
-                    Booking Tiket
+                    Lanjutkan Booking
 
                 </button>
 
@@ -165,7 +181,158 @@
         </main>
 
 
-        <!-- HASIL BOOKING -->
+        <!-- ========================= -->
+        <!-- MODAL VERIFIKASI IDENTITAS -->
+        <!-- ========================= -->
+
+        <div
+            class="identity-modal"
+            id="identityModal">
+
+            <div class="identity-card">
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeIdentityModal()">
+
+                    ×
+
+                </button>
+
+
+                <div class="identity-icon">
+                    🪪
+                </div>
+
+
+                <span class="identity-label">
+                    VERIFIKASI IDENTITAS
+                </span>
+
+
+                <h2>
+                    Verifikasi Booking
+                </h2>
+
+
+                <p class="identity-desc">
+                    Pilih salah satu identitas untuk
+                    melanjutkan booking pendakian.
+                </p>
+
+
+                <!-- PILIH IDENTITAS -->
+                <div class="identity-types">
+
+                    <label class="identity-option">
+
+                        <input
+                            type="radio"
+                            name="identityType"
+                            value="KTP">
+
+                        <span class="identity-option-box">
+
+                            <strong>KTP</strong>
+
+                            <small>
+                                NIK 16 digit
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="identity-option">
+
+                        <input
+                            type="radio"
+                            name="identityType"
+                            value="Kartu Pelajar">
+
+                        <span class="identity-option-box">
+
+                            <strong>Kartu Pelajar</strong>
+
+                            <small>
+                                NISN 10 digit
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="identity-option">
+
+                        <input
+                            type="radio"
+                            name="identityType"
+                            value="SIM">
+
+                        <span class="identity-option-box">
+
+                            <strong>SIM</strong>
+
+                            <small>
+                                Nomor SIM
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- NOMOR IDENTITAS -->
+                <div class="identity-input">
+
+                    <label for="identityNumber">
+                        Nomor Identitas
+                    </label>
+
+                    <input
+                        type="text"
+                        id="identityNumber"
+                        placeholder="Pilih jenis identitas terlebih dahulu"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        disabled>
+
+                    <small id="identityHint">
+                        Nomor identitas hanya digunakan
+                        untuk proses verifikasi.
+                    </small>
+
+                </div>
+
+
+                <p
+                    class="identity-error"
+                    id="identityError">
+                </p>
+
+
+                <button
+                    type="button"
+                    class="verify-btn"
+                    onclick="verifyIdentity()">
+
+                    Verifikasi & Booking
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- MODAL BOOKING BERHASIL -->
+        <!-- ========================= -->
 
         <div
             class="success-modal"
@@ -177,13 +344,15 @@
                     ✓
                 </div>
 
+
                 <h2>
                     Booking berhasil!
                 </h2>
 
+
                 <p>
-                    Simpan kode booking ini untuk
-                    digunakan saat pendakian.
+                    Booking pendakianmu berhasil dibuat.
+                    Simpan kode booking ini.
                 </p>
 
 
@@ -203,29 +372,69 @@
                 <div class="booking-detail">
 
                     <div>
-                        <span>Gunung</span>
-                        <strong id="resultMountain"></strong>
+
+                        <span>
+                            Gunung
+                        </span>
+
+                        <strong id="resultMountain">
+                        </strong>
+
                     </div>
 
-                    <div>
-                        <span>Tanggal</span>
-                        <strong id="resultDate"></strong>
-                    </div>
 
                     <div>
-                        <span>Pendaki</span>
-                        <strong id="resultPeople"></strong>
+
+                        <span>
+                            Tanggal
+                        </span>
+
+                        <strong id="resultDate">
+                        </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Total</span>
-                        <strong id="resultTotal"></strong>
+
+                        <span>
+                            Pendaki
+                        </span>
+
+                        <strong id="resultPeople">
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="resultTotal">
+                        </strong>
+
+                    </div>
+
+
+                    <div class="identity-result">
+
+                        <span>
+                            Identitas
+                        </span>
+
+                        <strong id="resultIdentity">
+                        </strong>
+
                     </div>
 
                 </div>
 
 
                 <button
+                    type="button"
                     class="done-btn"
                     onclick="goHistory()">
 
